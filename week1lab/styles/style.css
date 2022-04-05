@@ -1,3 +1,11 @@
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  max-width: 300vw;
+}
+
 body{
   display: grid;
   /* grid-template-columns: 1fr;  */
@@ -25,14 +33,6 @@ header{
 #contents{
   grid-area: content;
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 300px;
-    max-width: 300vw;
-  }
 
 #map{
   margin-left: auto;
