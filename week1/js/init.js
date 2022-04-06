@@ -1,7 +1,7 @@
 console.log('Hello Asian Am 191! :)');
 
 // JavaScript const variable declaration
-const map = L.map('map').setView([34.0709, -118.444], 15);
+const map = L.map('map').setView([34.0709, -118.444], 5);
 
 // Leaflet tile layer, i.e. the base map
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -5,15 +5,15 @@
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="#">
 
+        <!-- Referencing style.css instead of using inline css -->
+        <link rel="stylesheet" href="styles/style.css">
+
         <!-- Leaflet's css-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
         <!-- Leaflet's JavaScript-->
         <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-        <!-- Referencing style.css instead of using inline css -->
-        <link rel="stylesheet" href="styles/style.css">
 
     </head>
 
@@ -24,9 +24,11 @@
         </header>
 
         <div class="main">
-            <!-- hint: majority of your lab assignment can go here -->
+            <div id="contents">
+                <!-- hint: majority of your lab assignment can go here -->
+                
+            </div>
             <div id="map"></div>
-
         </div>
 
         <div id="footer">

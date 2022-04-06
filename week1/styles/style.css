@@ -15,14 +15,14 @@ header{
 }
 
 .main{
-    display: grid;
     grid-area: main_content;
-    grid-template-areas: "mappanel" "content";
+    grid-template-areas: "content" "main_map";
+    display: grid;
 }
 
 #map{
     height:80vh;
-    grid-area: mappanel;
+    grid-area: main_map;
 }
 
 #contents{
