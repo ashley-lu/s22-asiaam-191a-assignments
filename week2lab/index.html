@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Map Portfolio</title>
+        <link rel="shortcut icon" href="#">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        <!-- Linking css -->
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Map Portfolio</h1>
+        </header>
+
+        <div class="main">
+            <h2>About Me!</h2>
+            <ul>
+                <li>My name is Ashley but you can call me Ash. If you didn't know I'm a Pokemon Master B)</li>
+                <li>I'm a second year at UCLA majoring in Business Economics and intending to minor in Data
+                Science Engineering and Digital Humanities.</li>
+                <li>I'm actively involved in ACM (specifically the TeachLA and Studio committees), Creative Labs, and 
+                DataRes on campus.</li>
+                <li>My clubs are a good indication of what I like, but I am interested in accessible education, game
+                development (particularly art and writing), design (I want to learn more!!), and data science.</li>
+                <li>I like watching sports in my free time, particularly figure skating, golf, and gymnastics (tennis
+                occasionally).</li>
+                <li>I give coffee recommendations on this other page I made: <a href="more-stuff.html" style="color:yellow" target="_blank">Coffee!</a></li>
+            </ul>
+
+            Plugs in case people are interested in art + game dev that I've worked on, though my art Instagram has
+            been dead for months :')
+            <ol>
+                <li><a href="https://www.instagram.com/altair.ias/" style="color:yellow" target="_blank">Instagram</a></li>
+                <li><a href="https://altairs.itch.io/" style="color:yellow" target="_blank">itch.io</a></li>
+            </ol>
+
+            Contact me on Discord at: azur#4136 
+
+            <p>
+                You might be wondering who my Discord profile is. Why, it's the one and only Herlock Sholmes (not Sherlock
+                Holmes due to copyright) from one of my favorite games, <em>The Great Ace Attorney Chronicles</em>. Here he is in all
+                his glory:
+            </p>
+
+            <img src="images/herlock.png" alt="Herlock Sholmes" class="center">
+        
+            <br>
+            Anyway, enough about that; this is for a class after all :)
+
+            <h2>About Map-Making</h2>
+            <p>
+                My experience with map-making mostly comes from doing data analysis for classes or club projects. I have 
+                always found maps to be a great way to show information because they are very capable of telling stories
+                about people and places. However, I've found that the ethical component associated with data is often
+                omitted from classes and clubs, and so my goals for this class are to make meaningful maps that properly 
+                represent the communities I'm trying to visualize. I want to make sure that I am not perpetuating power
+                imbalances through my maps.
+            </p>
+        
+            <h2>Places I've Lived In</h2>
+            <div id="map"></div>
+        </div>
+    
+        <div id="footer">
+            <br>
+            Copyright(2022)
+        </div>
+
+        <script src="js/init.js"></script>
+    </body>
+</html>
