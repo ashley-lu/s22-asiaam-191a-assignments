@@ -47,6 +47,7 @@
 
 .topnav {
   overflow: hidden;
+  padding-bottom: 20px;
 }
 
 /* Style the links inside the navigation bar */
@@ -55,7 +56,6 @@
   color: #000000;
   text-align: center;
   padding-left: 40px;
-  padding-bottom: 20px;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
@@ -69,6 +69,10 @@
 /* Add a color to the active/current link */
 .topnav a.active {
   color: rgb(143, 36, 54);
+}
+
+.topnav-left {
+  float: left;
 }
 
 .center {
