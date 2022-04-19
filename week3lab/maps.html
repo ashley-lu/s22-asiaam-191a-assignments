@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Map Portfolio</title>
+        <link rel="shortcut icon" href="#">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        <!-- TypeIt's JavaScript-->
+        <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
+
+        <!-- Linking css -->
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="topnav">
+                <a class="active" href="maps.html">Maps</a>
+                <a href="about.html">About</a>
+                <a href="index.html">Home</a>
+              </div> 
+        </header>
+
+        <div class="main">
+            <div id="contents">
+                <h2>About Map-Making</h2>
+                <p>
+                    My experience with map-making mostly comes from doing data analysis for classes or club projects. I have 
+                    always found maps to be a great way to show information because they are very capable of telling stories
+                    about people and places. However, I've found that the ethical component associated with data is often
+                    omitted from classes and clubs, and so my goals for this class are to make meaningful maps that properly 
+                    represent the communities I'm trying to visualize. I want to make sure that I am not perpetuating power
+                    imbalances through my maps.
+                </p>
+        
+                <h2>Places I've Lived In</h2>
+                <p>I chose this tile layer for the map not only because it looks pretty but also because it reminded me of
+                   my Middle Eastern Studies class. The fact that no boundaries are drawn means we are seeing the land from 
+                   a mostly geographical perspective, hopefully limiting power imbalances created by politics and eurocentric 
+                   ideals.
+                </p>
+                <div id="map"></div>
+                </div>
+            </div>
+    
+        <div id="footer">
+            <br>
+            <div id="social-media">
+                <a href="https://www.linkedin.com/in/ashley-j-lu/" target="_blank" class="icon"><img src="images/icons8-linkedin.svg" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/altair.ias" target="_blank" class="icon"><img src="images/icons8-instagram.svg" alt="Instagram"></a>
+                <a href="https://www.github.com/ashley-lu" target="_blank" class="icon"><img src="images/icons8-github.svg" alt="GitHub"></a>
+                <a href="https://www.discordapp.com/users/220959085443416065" target="_blank" class="icon"><img src="images/icons8-discord.svg" alt="Discord"></a>
+                <span id="copyright">Made with 🖤 by Ash © 2022</span>
+            </div>
+        </div>
+
+        <script src="js/init.js"></script>
+    </body>
+</html>

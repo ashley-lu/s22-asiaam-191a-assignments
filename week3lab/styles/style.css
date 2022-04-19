@@ -1,0 +1,141 @@
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
+@import url('https://fonts.googleapis.com/css?family=Special Elite');
+
+.grid {
+  margin:auto;
+  width:500px;
+  height:600px;
+  display:grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 60px;
+  grid-row-gap: 20px;
+}
+
+.item {
+  padding:20px;
+  border-radius:10px;
+  color:rgb(0, 0, 0);
+  display:grid;
+  align-items:center;
+  text-align:center;
+  justify-content:center;
+  font-size:15px;
+  font-weight: bold;
+}
+
+.item .img {
+  border-radius: 20px;
+}
+
+#social-media{
+  color: #000000;
+  text-align: center;
+}
+
+.icon{
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+#copyright{
+  float: right;
+  color: #000000;
+  font-size: 15px;
+}
+
+.topnav {
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: rgb(227, 37, 69);
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: rgb(143, 36, 54);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 50px;
+}
+
+.popupImage {
+  height: 100px;
+  max-width: 100vw;
+}
+
+body{
+  display: grid;
+  /* grid-template-columns: 1fr;  */
+  grid-auto-rows: auto 1fr;
+  grid-template-areas: "header" "main_content" "footer";
+  background-image: url("/week3lab/images/paper-texture.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(209, 183, 134);
+  color: rgb(0, 0, 0);
+  font-family: "Special Elite";
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
+  line-height: 1.5;
+  /* height: 100vh; */
+}
+
+header{
+  grid-area: header;
+}
+
+#quote{
+  padding: 50px 50px;
+  font-family: "Special Elite";
+  margin-left: auto;
+  margin-right: auto;
+  display:table;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(143, 36, 54);
+}
+
+#footer{
+  grid-area: footer;
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+.main{
+  grid-area: main_content;
+  grid-template-areas: "content";
+}
+
+#contents{
+  grid-area: content;
+}
+
+#map{
+  height:80vh;
+  grid-area: main_map;
+}
