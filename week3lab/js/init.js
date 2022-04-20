@@ -15,22 +15,12 @@ L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{e
 	ext: 'jpg'
 }).addTo(map);
 
-// Icon options
- var MyIcon = L.icon({
-    iconUrl: 'leaf-green.png',
-    iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-     
 // Creating a custom icon
 var MyIcon = L.icon({
         iconUrl: 'images/magnifying-glass.png',
-        shadowUrl: 'images/magnifying-glass.png',
-        iconSize:     [25, 25], // width and height of the image in pixels
-        shadowSize:   [35, 20], // width, height of optional shadow image
+        shadowUrl: 'images/magnifying-glass-shadow.png',
+        iconSize:     [50, 50], // width and height of the image in pixels
+        shadowSize:   [65, 45], // width, height of optional shadow image
         iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
         shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
         popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
@@ -75,29 +65,10 @@ function add_marker(lat, lng, title, popup, img) {
         //.openPopup();
 }
 
-fetch("map.geojson")
-    .then(response => {
-        return response.json()
-    })
-    .then(data =>{
-        // Basic Leaflet method to add GeoJSON data
-        createButtons(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0], data.features[0].properties.place)
-        createButtons(data.features[1].geometry.coordinates[1], data.features[1].geometry.coordinates[0], data.features[1].properties.place)
-        createButtons(data.features[2].geometry.coordinates[1], data.features[2].geometry.coordinates[0], data.features[2].properties.place)
-        L.geoJSON(data, {
-                pointToLayer: (feature, latlng) => { 
-                    return L.circleMarker(latlng, {color: feature.properties.color})
-                }
-            }).bindPopup(layer => {
-                return `<h2>${layer.feature.properties.place}</h2>` + layer.feature.properties.description;
-            }).addTo(map);
-    })
-
-
-function createButtons(lat,lng,title){
+function createButtons(lat,lng,title,img){
     const newButton = document.createElement("button"); 
     newButton.id = "button"+title; 
-    newButton.innerHTML = title; 
+    newButton.innerHTML = title+`<br>`+`<img src=${img} width="50" height="25">`; 
     newButton.setAttribute("lat",lat); 
     newButton.setAttribute("lng",lng); 
     newButton.addEventListener('click', function(){
@@ -105,6 +76,24 @@ function createButtons(lat,lng,title){
     })
     document.getElementById("contents").appendChild(newButton); 
 }
+
+fetch("map.geojson")
+    .then(response => {
+        return response.json()
+    })
+    .then(data =>{
+        // Basic Leaflet method to add GeoJSON data
+        createButtons(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0], data.features[0].properties.place, "images/canada-flag.png")
+        createButtons(data.features[1].geometry.coordinates[1], data.features[1].geometry.coordinates[0], data.features[1].properties.place, "images/nj.jpg")
+        createButtons(data.features[2].geometry.coordinates[1], data.features[2].geometry.coordinates[0], data.features[2].properties.place, "images/ucla-logo.svg")
+        L.geoJSON(data, {
+                pointToLayer: (feature, latlng) => { 
+                    return L.marker(latlng, {icon: MyIcon, color: feature.properties.color})
+                }
+            }).bindPopup(layer => {
+                return `<h2>${layer.feature.properties.place}</h2>` + layer.feature.properties.description;
+            }).addTo(map);
+    })
 
 
         

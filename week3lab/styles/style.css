@@ -46,8 +46,30 @@
 }
 
 .topnav {
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+#sherlock {
+  border-style: solid;
+  border-radius: 50%;
+  border-width: medium;
+  border-color:rgb(0, 0, 0);
+  padding: 10px;
+}
+
+.page-link {
+  padding-left: 40px;
+}
+
+#pages {
+  float: right;
+}
+
+.topnav-left {
+  float: left;
 }
 
 /* Style the links inside the navigation bar */
@@ -55,7 +77,6 @@
   float: right;
   color: #000000;
   text-align: center;
-  padding-left: 40px;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
@@ -69,10 +90,6 @@
 /* Add a color to the active/current link */
 .topnav a.active {
   color: rgb(143, 36, 54);
-}
-
-.topnav-left {
-  float: left;
 }
 
 .center {
