@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Map Portfolio</title>
+        <link rel="shortcut icon" href="#">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        <!-- TypeIt's JavaScript-->
+        <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
+
+        <!-- Papa Parse's JavaScript -->
+        <script src="js/papaparse.min.js"></script>
+        
+        <!-- Linking css -->
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="topnav">
+                <div class="topnav-left">
+                    <a href="index.html"><img src="images/sherlock-icon.png" alt="Sherlock" width="40" height="auto" id="sherlock"></a>
+                </div>
+                <div id="pages">
+                    <a href="survey.html" class="active page-link">Survey</a>
+                    <a class="page-link" href="maps.html">Maps</a>
+                    <a href="about.html" class="page-link">About</a>
+                    <a href="index.html" class="page-link">Home</a>
+                </div>
+                
+              </div> 
+        </header>
+
+        <div class="main">
+            <div id="contents">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdC1Gpa1rIwWERk_lNM8BvcG4cmqAWjlXgPG4EXZveRZ-yW3g/viewform?embedded=true" width="640" height="915" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>            
+            </div>
+            <div id="map"></div>
+        </div>
+    
+        <div id="footer">
+            <br>
+            <div id="social-media">
+                <a href="https://www.linkedin.com/in/ashley-j-lu/" target="_blank" class="icon"><img src="images/icons8-linkedin.svg" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/altair.ias" target="_blank" class="icon"><img src="images/icons8-instagram.svg" alt="Instagram"></a>
+                <a href="https://www.github.com/ashley-lu" target="_blank" class="icon"><img src="images/icons8-github.svg" alt="GitHub"></a>
+                <a href="https://www.discordapp.com/users/220959085443416065" target="_blank" class="icon"><img src="images/icons8-discord.svg" alt="Discord"></a>
+                <span id="copyright">Made with 🖤 by Ash © 2022</span>
+            </div>
+        </div>
+
+        <script src="js/init.js"></script>
+    </body>
+</html>
