@@ -69,58 +69,67 @@ function add_marker(lat, lng, title, popup) {
     //.openPopup();
 }
 
-function createButtons(lat, lng, title, img) {
-    const newButton = document.createElement("button");
-    newButton.id = "button" + title;
-    newButton.innerHTML = title + `<br>` + `<img src=${img} width="50" height="25">`;
-    newButton.setAttribute("lat", lat);
-    newButton.setAttribute("lng", lng);
-    newButton.addEventListener('click', function () {
-        map.flyTo([lat, lng]);
-    })
-    const placeForButtons = document.getElementById("placeForButtons")
-    placeForButtons.appendChild(newButton);
-}
-
-function createButtons2(lat, lng, title) {
-    const newButton = document.createElement("button");
-    newButton.id = "button" + title;
-    newButton.innerHTML = title;
-    newButton.setAttribute("lat", lat);
-    newButton.setAttribute("lng", lng);
-    newButton.addEventListener('click', function () {
-        map.flyTo([lat, lng]);
-    })
-    const placeForSurveyButtons = document.getElementById("placeForSurveyButtons")
-    placeForSurveyButtons.appendChild(newButton);
-}
-
 const surveyUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXs_a66SVOOHKnp12UHz0lrIdrRJGxkXbxcxQ1tYn-bdSQDcgnfq0NKHHUii82iAIlYmAxUfMNDIly/pub?output=csv"
 
 function loadData(url) {
-    if (url == "map.geojson") {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                createButtons(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0], data.features[0].properties.place, "images/canada-flag.png")
-                createButtons(data.features[1].geometry.coordinates[1], data.features[1].geometry.coordinates[0], data.features[1].properties.place, "images/nj.jpg")
-                createButtons(data.features[2].geometry.coordinates[1], data.features[2].geometry.coordinates[0], data.features[2].properties.place, "images/ucla-logo.svg")
-                L.geoJSON(data, {
-                    pointToLayer: (feature, latlng) => {
-                        return L.marker(latlng, { icon: magnifyingGlassIcon, color: feature.properties.color })
-                    }
-                }).bindPopup(layer => {
-                    return `<h2>${layer.feature.properties.place}</h2>` + layer.feature.properties.description;
-                }).addTo(map);
-            })
-            .catch((err) => { console.log(err) })
-    }
+    // if (url == "map.geojson") {
+    //     console.log("Map")
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             createButtons(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0], data.features[0].properties.place, "images/canada-flag.png")
+    //             createButtons(data.features[1].geometry.coordinates[1], data.features[1].geometry.coordinates[0], data.features[1].properties.place, "images/nj.jpg")
+    //             createButtons(data.features[2].geometry.coordinates[1], data.features[2].geometry.coordinates[0], data.features[2].properties.place, "images/ucla-logo.svg")
+    //             L.geoJSON(data, {
+    //                 pointToLayer: (feature, latlng) => {
+    //                     return L.marker(latlng, { icon: magnifyingGlassIcon, color: feature.properties.color })
+    //                 }
+    //             }).bindPopup(layer => {
+    //                 return `<h2>${layer.feature.properties.place}</h2>` + layer.feature.properties.description;
+    //             }).addTo(map);
+    //         })
+    //         .catch((err) => { console.log(err) })
+    // }
+
+    console.log("Survey")
     Papa.parse(url, {
         header: true,
         download: true,
         complete: results => processData(results)
     })
 }
+
+function createButtons(lat, lng, title, img) {
+    const newButton = document.createElement("button");
+    newButton.id = "button" + title;
+    newButton.innerHTML = title + `<br>` + `<img src=${img} width="50" height="50">`;
+    newButton.setAttribute("lat", lat);
+    newButton.setAttribute("lng", lng);
+    newButton.addEventListener('click', function () {
+        map.flyTo([lat, lng]);
+    })
+    const placeForButtons = document.getElementById("placeForButtons");
+    placeForButtons.appendChild(newButton);
+    // if (placeForButtons != null) {
+    //     placeForButtons.appendChild(newButton);
+    // }
+}
+
+// function createButtons2(lat, lng, title) {
+//     const newButton = document.createElement("button");
+//     newButton.id = "button" + title;
+//     newButton.innerHTML = title;
+//     newButton.setAttribute("lat", lat);
+//     newButton.setAttribute("lng", lng);
+//     newButton.addEventListener('click', function () {
+//         map.flyTo([lat, lng]);
+//     })
+//     const placeForSurveyButtons = document.getElementById("placeForSurveyButtons");
+//     placeForSurveyButtons.appendChild(newButton);
+//     // if (placeForSurveyButtons != null) {
+//     //     placeForSurveyButtons.appendChild(newButton);
+//     // }
+// }
 
 loadData("map.geojson")
 loadData(surveyUrl)
@@ -130,7 +139,7 @@ function processData(results) {
     results.data.forEach(data => {
         console.log(data) // for debugging: are we seeing each data correctly?
         add_marker(data.lat, data.lng, data['What is the name of your favorite food place?'], data['Please describe what you enjoy about your favorite food place in 1-2 sentences.'])
-        createButtons2(data.lat, data.lng, data['What is the name of your favorite food place?']);
+        createButtons(data.lat, data.lng, data['What is the name of your favorite food place?'], "images/bread.png");
     })
 }
 

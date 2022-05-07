@@ -161,6 +161,12 @@ header{
 
 #contents{
   grid-area: content;
+  display: grid;
+  grid-template-areas: "buttonHome" "survey";
+}
+
+#theSurvey{
+  grid-area: survey; 
 }
 
 #map{
@@ -172,10 +178,4 @@ header{
   grid-area: buttonHome; 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
-
-#placeForSurveyButtons{
-  grid-area: buttonHome; 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
