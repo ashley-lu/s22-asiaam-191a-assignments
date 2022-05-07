@@ -16,15 +16,15 @@ L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{e
 }).addTo(map);
 
 // Creating a custom icon
-var magnifyingGlassIcon = L.icon({
-    iconUrl: 'images/magnifying-glass.png',
-    shadowUrl: 'images/magnifying-glass-shadow.png',
-    iconSize: [50, 50], // width and height of the image in pixels
-    shadowSize: [65, 45], // width, height of optional shadow image
-    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
-    shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
-    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
-});
+// var magnifyingGlassIcon = L.icon({
+//     iconUrl: 'images/magnifying-glass.png',
+//     shadowUrl: 'images/magnifying-glass-shadow.png',
+//     iconSize: [50, 50], // width and height of the image in pixels
+//     shadowSize: [65, 45], // width, height of optional shadow image
+//     iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+//     shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
+//     popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+// });
 
 var breadIcon = L.icon({
     iconUrl: 'images/bread.png',
