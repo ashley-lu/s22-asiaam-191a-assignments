@@ -1,96 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Map Portfolio</title>
-        <link rel="shortcut icon" href="#">
+    <title>Map Portfolio</title>
+    <link rel="shortcut icon" href="#">
 
-        <!-- Leaflet's css-->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Leaflet's css-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
-        <!-- Leaflet's JavaScript-->
-        <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Leaflet's JavaScript-->
+    <!-- Note: add this before linking init.js, otherwise does not recognize Leaflet script -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-        <!-- TypeIt's JavaScript-->
-        <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
+    <!-- TypeIt's JavaScript-->
+    <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
 
-        <!-- Papa Parse's JavaScript -->
-        <script src="js/papaparse.min.js"></script>
-        
-        <!-- Linking css -->
-        <link rel="stylesheet" href="styles/style.css">
-    </head>
+    <!-- Papa Parse's JavaScript -->
+    <script src="js/papaparse.min.js"></script>
 
-    <body>
-        <header>
-            <div class="topnav">
-                <div class="topnav-left">
-                    <a href="index.html"><img src="images/sherlock-icon.png" alt="Sherlock" width="40" height="auto" id="sherlock"></a>
-                </div>
-                <div class="pages">
-                    <a href="survey.html" class="page-link">Survey</a>
-                    <a href="maps.html" class="page-link">Maps</a>
-                    <a class="active page-link" href="about.html">About</a>
-                    <a href="index.html" class="page-link">Home</a>
-                </div>
-              </div> 
-        </header>
+    <!-- Linking css -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 
-            <div id="contents">
-                <h2>More About Ash (the real owner of this website, not Herlock Sholmes)</h2>
-                <p>Hello! I'm Ashley (Ash), a second year student at UCLA. My intended degrees are a major in Business Economics and minors in
-                Data Science Engineering and Digital Humanities (though that's subject to change). In my free time, I like sampling coffee,
-                playing games sometimes, and trying "cool" things (whatever that means).</p>
-
-                <h2>Things I Do at UCLA</h2>
-                <div class="grid">
-                    <figure class="item">
-                        <a href="https://www.creativelabsucla.com/" target="_blank"><img src="images/CL.png" class="img" alt="Creative Labs" height="200" width="200"></a>
-                        <figcaption>Creative Labs</figcaption>
-                    </figure> 
-                    <figure class="item">
-                        <a href="https://www.teachla.uclaacm.com/" target="_blank"><img src="images/teachla.png" class="img" alt="ACM TeachLA" height="200" width="200"></a>
-                        <figcaption>ACM TeachLA</figcaption>
-                    </figure> 
-                    <figure class="item">
-                        <a href="https://www.instagram.com/acmstudio.ucla/?hl=en" target="_blank"><img src="images/studio.png" class="img" alt="Creative Labs" height="200" width="200"></a>
-                        <figcaption>ACM Studio</figcaption>
-                    </figure> 
-                    <figure class="item">
-                        <a href="https://www.datares.github.io/#/" target="_blank"><img src="images/datares.png" class="img" alt="Creative Labs" height="200" width="200"></a>
-                        <figcaption>DataRes</figcaption>
-                    </figure> 
-                  </div>
-
-                <h2>Games</h2>
-                <p>I have a bad habit of buying games and not finishing them and here are the ones that currently fall in that list (sad!):</p>
-                <ul>
-                    <li>The Great Ace Attorney</li>
-                    <li>Pokemon Legends: Arceus</li>
-                    <li>OMORI</li>
-                    <li>Tokyo Mirage Sessions #FE Encore</li>
-                </ul>
-                <p>...and probably a good amount of Fire Emblem games to be honest. And also the rest of the Ace Attorney trilogy (beyond AA1).
-                   If you're curious, my favorite game is probably <b>Fire Emblem Echoes: Shadows of Valentia</b>! I don't think it's the best 
-                   game by any means but there's something comforting and nostalgic about the game that keeps me coming back. I think I'm at 
-                   my 4th playthrough?
-                </p>
-                <img src="images/echoes.gif" class="center">
-                </div>
-    
-        <div id="footer">
-            <br>
-            <div id="social-media">
-                <a href="https://www.linkedin.com/in/ashley-j-lu/" target="_blank" class="icon"><img src="images/icons8-linkedin.svg" alt="LinkedIn"></a>
-                <a href="https://www.instagram.com/altair.ias" target="_blank" class="icon"><img src="images/icons8-instagram.svg" alt="Instagram"></a>
-                <a href="https://www.github.com/ashley-lu" target="_blank" class="icon"><img src="images/icons8-github.svg" alt="GitHub"></a>
-                <a href="https://www.discordapp.com/users/220959085443416065" target="_blank" class="icon"><img src="images/icons8-discord.svg" alt="Discord"></a>
-                <span id="copyright">Made with 🖤 by Ash © 2022</span>
+<body>
+    <header>
+        <div class="topnav">
+            <div class="topnav-left">
+                <a href="index.html"><img src="images/sherlock-icon.png" alt="Sherlock" width="40" height="auto"
+                        id="sherlock"></a>
+            </div>
+            <div class="pages">
+                <a href="survey.html" class="page-link">Survey</a>
+                <a href="maps.html" class="page-link">Maps</a>
+                <a class="active page-link" href="about.html">About</a>
+                <a href="index.html" class="page-link">Home</a>
             </div>
         </div>
-    </body>
+    </header>
+
+    <div id="about">
+        <h2>More About Ash (the real owner of this website, not Herlock Sholmes)</h2>
+        <p>Hello! I'm Ashley (Ash), a second year student at UCLA. My intended degrees are a major in Business Economics
+            and minors in
+            Data Science Engineering and Digital Humanities (though that's subject to change). In my free time, I like
+            sampling coffee,
+            playing games sometimes, and trying "cool" things (whatever that means).</p>
+
+        <h2>Things I Do at UCLA</h2>
+        <div class="grid">
+            <figure class="item">
+                <a href="https://www.creativelabsucla.com/" target="_blank"><img src="images/CL.png" class="img"
+                        alt="Creative Labs" height="200" width="200"></a>
+                <figcaption>Creative Labs</figcaption>
+            </figure>
+            <figure class="item">
+                <a href="https://www.teachla.uclaacm.com/" target="_blank"><img src="images/teachla.png" class="img"
+                        alt="ACM TeachLA" height="200" width="200"></a>
+                <figcaption>ACM TeachLA</figcaption>
+            </figure>
+            <figure class="item">
+                <a href="https://www.instagram.com/acmstudio.ucla/?hl=en" target="_blank"><img src="images/studio.png"
+                        class="img" alt="Creative Labs" height="200" width="200"></a>
+                <figcaption>ACM Studio</figcaption>
+            </figure>
+            <figure class="item">
+                <a href="https://www.datares.github.io/#/" target="_blank"><img src="images/datares.png" class="img"
+                        alt="Creative Labs" height="200" width="200"></a>
+                <figcaption>DataRes</figcaption>
+            </figure>
+        </div>
+
+        <h2>Games</h2>
+        <p>I have a bad habit of buying games and not finishing them and here are the ones that currently fall in that
+            list (sad!):</p>
+        <ul>
+            <li>The Great Ace Attorney</li>
+            <li>Pokemon Legends: Arceus</li>
+            <li>OMORI</li>
+            <li>Tokyo Mirage Sessions #FE Encore</li>
+        </ul>
+        <p>...and probably a good amount of Fire Emblem games to be honest. And also the rest of the Ace Attorney
+            trilogy (beyond AA1).
+            If you're curious, my favorite game is probably <b>Fire Emblem Echoes: Shadows of Valentia</b>! I don't
+            think it's the best
+            game by any means but there's something comforting and nostalgic about the game that keeps me coming back. I
+            think I'm at
+            my 4th playthrough?
+        </p>
+        <img src="images/echoes.gif" class="center">
+    </div>
+
+    <div id="footer">
+        <br>
+        <div id="social-media">
+            <a href="https://www.linkedin.com/in/ashley-j-lu/" target="_blank" class="icon"><img
+                    src="images/icons8-linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/altair.ias" target="_blank" class="icon"><img
+                    src="images/icons8-instagram.svg" alt="Instagram"></a>
+            <a href="https://www.github.com/ashley-lu" target="_blank" class="icon"><img src="images/icons8-github.svg"
+                    alt="GitHub"></a>
+            <a href="https://www.discordapp.com/users/220959085443416065" target="_blank" class="icon"><img
+                    src="images/icons8-discord.svg" alt="Discord"></a>
+            <span id="copyright">Made with 🖤 by Ash © 2022</span>
+        </div>
+    </div>
+</body>
+
 </html>

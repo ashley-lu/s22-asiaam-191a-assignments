@@ -16,7 +16,7 @@ L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{e
 }).addTo(map);
 
 // Creating a custom icon
-var MyIcon = L.icon({
+var magnifyingGlassIcon = L.icon({
     iconUrl: 'images/magnifying-glass.png',
     shadowUrl: 'images/magnifying-glass-shadow.png',
     iconSize: [50, 50], // width and height of the image in pixels
@@ -25,16 +25,19 @@ var MyIcon = L.icon({
     shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
     popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 });
-/*var customIcon = L.icon(iconOptions);*/
+
+var breadIcon = L.icon({
+    iconUrl: 'images/bread.png',
+    iconSize: [50, 50], // width and height of the image in pixels
+    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+});
 
 // Options for the marker
-/*var markerOptions = {
-        clickable: true,
-        icon: customIcon
-     }*/
-
-// create popup contents
-// var customPopup = "Mozilla Toronto Offices<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+// var markerOptions = {
+//         clickable: true,
+//         icon: customIcon
+//      };
 
 // specify popup options 
 /*var customOptions =
@@ -58,8 +61,9 @@ add_marker(34.068920, -118.445183, "UCLA",
 //JavaScript function to create markers
 function add_marker(lat, lng, title, popup) {
     var customPopup = `<h2>${title}</h2>` + popup;
-    L.circleMarker([lat, lng]).addTo(map)
-        .bindPopup(customPopup)
+    L.marker([lat, lng], { icon: breadIcon }).addTo(map).bindPopup(customPopup);
+    // L.circleMarker([lat, lng]).addTo(map)
+    //     .bindPopup(customPopup)
     //createButtons(lat, lng, title)
     return customPopup;
     //.openPopup();
@@ -74,7 +78,21 @@ function createButtons(lat, lng, title, img) {
     newButton.addEventListener('click', function () {
         map.flyTo([lat, lng]);
     })
-    document.getElementById("contents").appendChild(newButton);
+    const placeForButtons = document.getElementById("placeForButtons")
+    placeForButtons.appendChild(newButton);
+}
+
+function createButtons2(lat, lng, title) {
+    const newButton = document.createElement("button");
+    newButton.id = "button" + title;
+    newButton.innerHTML = title;
+    newButton.setAttribute("lat", lat);
+    newButton.setAttribute("lng", lng);
+    newButton.addEventListener('click', function () {
+        map.flyTo([lat, lng]);
+    })
+    const placeForSurveyButtons = document.getElementById("placeForSurveyButtons")
+    placeForSurveyButtons.appendChild(newButton);
 }
 
 const surveyUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXs_a66SVOOHKnp12UHz0lrIdrRJGxkXbxcxQ1tYn-bdSQDcgnfq0NKHHUii82iAIlYmAxUfMNDIly/pub?output=csv"
@@ -89,7 +107,7 @@ function loadData(url) {
                 createButtons(data.features[2].geometry.coordinates[1], data.features[2].geometry.coordinates[0], data.features[2].properties.place, "images/ucla-logo.svg")
                 L.geoJSON(data, {
                     pointToLayer: (feature, latlng) => {
-                        return L.marker(latlng, { icon: MyIcon, color: feature.properties.color })
+                        return L.marker(latlng, { icon: magnifyingGlassIcon, color: feature.properties.color })
                     }
                 }).bindPopup(layer => {
                     return `<h2>${layer.feature.properties.place}</h2>` + layer.feature.properties.description;
@@ -100,18 +118,19 @@ function loadData(url) {
     Papa.parse(url, {
         header: true,
         download: true,
-        complete: results => console.log(results)
+        complete: results => processData(results)
     })
 }
 
 loadData("map.geojson")
 loadData(surveyUrl)
 
-function processData(results){
+function processData(results) {
     console.log(results) //for debugging: this can help us see if the results are what we want
     results.data.forEach(data => {
         console.log(data) // for debugging: are we seeing each data correctly?
-        addMarker(data.lat,data.lng,data['What is the name of your favorite food place?'],data['Is your English your first language?'])
+        add_marker(data.lat, data.lng, data['What is the name of your favorite food place?'], data['Please describe what you enjoy about your favorite food place in 1-2 sentences.'])
+        createButtons2(data.lat, data.lng, data['What is the name of your favorite food place?']);
     })
 }
 

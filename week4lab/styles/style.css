@@ -1,6 +1,10 @@
 /*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
 @import url('https://fonts.googleapis.com/css?family=Special Elite');
 
+#about {
+  grid-template-areas: "grid";
+}
+
 .grid {
   margin:auto;
   width:500px;
@@ -162,4 +166,16 @@ header{
 #map{
   height:80vh;
   grid-area: main_map;
+}
+
+#placeForButtons{
+  grid-area: buttonHome; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#placeForSurveyButtons{
+  grid-area: buttonHome; 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
