@@ -1,0 +1,197 @@
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
+@import url('https://fonts.googleapis.com/css?family=Special Elite');
+
+.custom-popup,
+.leaflet-popup-content-wrapper {
+  background: #2f2c50;
+  color: #fff;
+  font-family: "Special Elite";
+}
+
+.custom-popup,
+.leaflet-popup-tip {
+  background:#2f2c50;
+}
+
+#title {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+}
+
+.grid {
+  margin: auto;
+  width: 500px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 60px;
+  grid-row-gap: 20px;
+}
+
+.item {
+  padding: 20px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  display: grid;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.item .img {
+  border-radius: 20px;
+}
+
+#social-media {
+  color: #000000;
+  text-align: center;
+}
+
+.icon {
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+#copyright {
+  float: right;
+  color: #000000;
+  font-size: 15px;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+#sherlock {
+  border-style: solid;
+  border-radius: 50%;
+  border-width: medium;
+  border-color: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+.page-link {
+  padding-left: 40px;
+}
+
+#pages {
+  float: right;
+}
+
+.topnav-left {
+  float: left;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: rgb(227, 37, 69);
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: rgb(143, 36, 54);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 50px;
+}
+
+.popupImage {
+  height: 100px;
+  max-width: 100vw;
+}
+
+body {
+  /* grid-template-areas: "header" "main_content" "footer"; */
+  background-image: url("../images/paper-texture.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: "Special Elite";
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
+  line-height: 1.5;
+  /* height: 100vh; */
+}
+
+.display {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 2rem;
+}
+
+#display>header {
+  grid-area: header;
+}
+
+.main {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "main_map content";
+  column-gap: 2rem;
+  display: grid;
+  overflow: auto;
+}
+
+#quote {
+  padding: 50px 50px;
+  font-family: "Special Elite";
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(143, 36, 54);
+}
+
+#display>footer {
+  grid-area: footer;
+}
+
+#contents {
+  grid-area: content;
+  display: grid;
+  grid-template-areas: "buttonHome""survey";
+}
+
+#theSurvey {
+  grid-area: survey;
+}
+
+#map {
+  height: 80vh;
+  grid-area: main_map;
+}
+
+#placeForButtons {
+  grid-area: buttonHome;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
