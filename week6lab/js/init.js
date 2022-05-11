@@ -83,7 +83,7 @@ function loadData(url) {
 function createButtons(lat, lng, title) {
     const newButton = document.createElement("button");
     newButton.id = "button" + title;
-    newButton.innerHTML = title;
+    newButton.innerHTML = `<span style="font-family:'Special Elite';">${title}</span>`;
     newButton.setAttribute("lat", lat);
     newButton.setAttribute("lng", lng);
     newButton.addEventListener('click', function () {
