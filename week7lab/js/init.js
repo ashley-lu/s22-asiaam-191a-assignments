@@ -1,7 +1,13 @@
-console.log("test");
-
 // define map options
 let mapOptions = { 'center': [40.058323, -74.405663], 'zoom': 4 }
+
+let close = L.featureGroup()
+let far = L.featureGroup()
+
+let layers = {
+    "Within Driving Distance": close,
+    "Not Within Driving Distance": far
+}
 
 // declare const map
 const map = L.map('map').setView(mapOptions.center, mapOptions.zoom);
@@ -14,6 +20,9 @@ L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{e
     maxZoom: 16,
     ext: 'jpg'
 }).addTo(map);
+
+// add layer control box
+L.control.layers(null,layers).addTo(map)
 
 // Creating a custom icon
 // var magnifyingGlassIcon = L.icon({
@@ -32,6 +41,15 @@ var breadIcon = L.icon({
     iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
     popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 });
+
+let circleOptions = {
+    radius: 4,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+}
 
 // Options for the marker
 // var markerOptions = {
@@ -59,9 +77,16 @@ add_marker(34.068920, -118.445183, "UCLA",
         "images/ucla-logo.svg")*/
 
 //JavaScript function to create markers
-function add_marker(lat, lng, title, popup) {
-    var customPopup = `<h2>${title}</h2>` + popup;
-    L.marker([lat, lng], { icon: breadIcon }).addTo(map).bindPopup(customPopup);
+function add_marker(data) {
+    var customPopup = `<h2>${data['What is the name of your favorite food place?']}</h2>` + data['Please describe what you enjoy about your favorite food place in 1-2 sentences.'];
+    if(data['Where is your favorite food place located?'].includes("Los Angeles") == true){ 
+        circleOptions.fillColor = "orange"
+        close.addLayer(L.circleMarker([data.lat,data.lng], circleOptions).bindPopup(customPopup + `<p>This place is within driving distance :)</p>`))
+    }
+    else{
+        circleOptions.fillColor = "blue"
+        far.addLayer(L.circleMarker([data.lat,data.lng], circleOptions).bindPopup(customPopup + `<p>This place is not within driving distance :(</p>`))
+    }
     // L.circleMarker([lat, lng]).addTo(map)
     //     .bindPopup(customPopup)
     //createButtons(lat, lng, title)
@@ -103,9 +128,13 @@ function processData(results) {
     console.log(results) //for debugging: this can help us see if the results are what we want
     results.data.forEach(data => {
         console.log(data) // for debugging: are we seeing each data correctly?
-        add_marker(data.lat, data.lng, data['What is the name of your favorite food place?'], data['Please describe what you enjoy about your favorite food place in 1-2 sentences.'])
+        add_marker(data)
         createButtons(data.lat, data.lng, data['What is the name of your favorite food place?'], "images/bread.png");
     })
+    close.addTo(map)
+    far.addTo(map)
+    let allLayers = L.featureGroup([close, far]);
+    map.fitBounds(allLayers.getBounds());
 }
 
 // fetch("map.geojson")
